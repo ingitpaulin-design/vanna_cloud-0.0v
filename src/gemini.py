@@ -9,7 +9,7 @@ class GeminiLLM:
     def __init__(self, config=None):
         cfg = config or {}
         # Configure API key outside or here:
-        # genai.configure(api_key=cfg.get("gemini_api_key"))
+        genai.configure(api_key=cfg.get("gemini_api_key"))
         self.model_name = cfg.get("gemini_model", "gemini-2.5-flash")
         # model_name = cfg.get("gemini_model", "gemini-2.5-flash")
         
@@ -20,7 +20,7 @@ class GeminiLLM:
         self.default_llm_kwargs = {
             "model": self.model_name,
             "temperature": cfg.get("temperature", 0.2),
-            "max_output_tokens": cfg.get("max_output_tokens", 1024)
+            "max_output_tokens": cfg.get("max_output_tokens", 30000)
         }
     
     def submit_prompt(self, prompt, **kwargs):
@@ -48,7 +48,7 @@ class GeminiLLM:
 
             resp = self.model.generate_content(
                 prompt,
-                generation_config=generation_config
+                generation_config=generation_config,stream=False
             )
 
             # --- SAFE extraction of text from the response ---

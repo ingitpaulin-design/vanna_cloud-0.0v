@@ -6,8 +6,7 @@ vector_dim: 1024
 distance: Cosine       # or 'Dot', 'Euclid'
 
 # --- Embedder Settings ---
-#embedder_model: intfloat/e5-large-v2  
-embedder_model : C:/Users/Ingit.Paul.in/.cache/huggingface/hub/models--intfloat--e5-large-v2/snapshots/f169b11e22de13617baa190a028a32f3493550b6
+embedder_model: intfloat/e5-large-v2  
 device: cpu                           
 
 # --- Gemini LLM Settings ---

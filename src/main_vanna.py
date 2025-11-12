@@ -13,6 +13,7 @@ print('.env file is loaded  successfully!✅')
 #instantiating the vanna class
 
 config=load_config()
+print('Configuration loaded✅')
 vn=MyVanna(config=config)
 
 #connecting it to the database
